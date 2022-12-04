@@ -77,41 +77,57 @@ Tabel 1. Statistik Deskriptif Dataset
 |  50%  |   1226.000000 |    0.0000 |    1.500000 |    1.000000 | ... | 1.500000    |
 |  75%  |   1615.250000 |    1.0000 |    2.200000 |    1.000000 | ... | 2.250000    |
 |  max  |   1998.000000 |    1.0000 |    3.000000 |    1.000000 | ... |    3.000000 |
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tabel 1 merupakan hasil dari statistik deskriptif dataset *Mobile Price*. Statistik deskriptif tersebut didapat dengan menggunakan fungsi `describe` yang terdapat pada object `DataFrame` dari *library* Pandas. Pada statistik deskriptif tersebut, kita dapat mengetahui informasi mengenai jumlah data, rata-rata (*mean*), standar deviasi (std), nilai minimum (*min*), kuartil bawah (25%), kuartil 2 atau nilai tengah (*median*), kuartil atas (75%), serta nilai maksimum (*max*) dari dataset. 
 
 **2. Persebaran Data**
+
 ![Label Distribution](https://raw.githubusercontent.com/TamaWira/Dicoding_ML-Terapan/main/submission_pertama/assets/EDA/label%20distribution.png?token=GHSAT0AAAAAAB3GYHOKFVPC7PEOPU2NZ4UOY4MNYWQ)
+
 Gambar 2. Persebaran Data pada Label
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Gambar 2 merupakan hasil *plot* persebaran data pada label (`price_range`). *Plot* dilakukan dengan menggunakan *library* `seaborn` menggunakan fungsi `histplot`. Terlihat pada *plot* bahwa persebaran dari masing-masing data imbang (*balance*), yaitu masing-masing berjumlah 500 data.
 
 ![Variabel Biner_Blue](https://raw.githubusercontent.com/TamaWira/Dicoding_ML-Terapan/main/submission_pertama/assets/EDA/distribusi%20biner_blue.png?token=GHSAT0AAAAAAB3GYHOKM7Y4OPHD6WCIBICSY4MNYLA)
+
 Gambar 3. Persebaran Data Variabel Biner '*blue*'
 
 ![Variabel Biner dual_sim](https://raw.githubusercontent.com/TamaWira/Dicoding_ML-Terapan/main/submission_pertama/assets/EDA/distribusi%20biner_dual-sim.png?token=GHSAT0AAAAAAB3GYHOLE2ZZNJ5NOPZ4YJWQY4MNZDQ)
+
 Gambar 4. Persebaran Data Variabel Biner '*dual_sim*'
 
 ![Variabel Biner four_g](https://raw.githubusercontent.com/TamaWira/Dicoding_ML-Terapan/main/submission_pertama/assets/EDA/distribusi%20biner_four-g.png?token=GHSAT0AAAAAAB3GYHOKQPRKKLEOX7GFAJMWY4MNZMQ)
+
 Gambar 5. Persebaran Data Variabel Biner '*four_g*'
 
 ![Variabel Biner three_g](https://raw.githubusercontent.com/TamaWira/Dicoding_ML-Terapan/main/submission_pertama/assets/EDA/distribusi%20biner_three-g.png?token=GHSAT0AAAAAAB3GYHOL4YYIAEW4U5OPYKQUY4MNZTQ)
+
 Gambar 6. Persebaran Data Variabel Biner '*three_g*'
 
 ![Variabel Biner touchscreen](https://raw.githubusercontent.com/TamaWira/Dicoding_ML-Terapan/main/submission_pertama/assets/EDA/distribusi%20biner_touchscreen.png?token=GHSAT0AAAAAAB3GYHOL574QXWJLNFYM2F54Y4MNZ4A)
+
 Gambar 7. Persebaran Data Variabel Biner '*touch_screen*'
 
 ![Variabel Biner wifi](https://raw.githubusercontent.com/TamaWira/Dicoding_ML-Terapan/main/submission_pertama/assets/EDA/distribusi%20biner_wifi.png?token=GHSAT0AAAAAAB3GYHOKSS5NPSJNKATATTWUY4MN2DQ)
+
 Gambar 8. Persebaran Data Variabel Biner '*wifi*'
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Gambar 3 hingga 8 merupakan hasil *plot* persebaran data pada variabel dengan tipe biner (hanya memiliki nilai 0 atau 1). Pada masing-masing *plot* tersebut, data masing-masing variabel tersebar secara rata pada masing-masing label. Hasil yang berbeda yaitu pada gambar 6 (distribusi variabel `three_g`), dimana data *handphone* yang memiliki fitur *3G* lebih banyak dibanding *handphone* yang tidak memiliki fitur *3G*. Namun, persebaran pada masing-masing label tetap imbang. Hal ini mengindikasikan bahwa variabel biner yang terdapat pada dataset *Mobile Phone* tidak memiliki kemampuan prediktif terhadap label. Berikut merupakan *plot* persebaran pada variabel numerik bertipe kontinuu.
 
 **3. Persebaran Data Kontinuu**
+
 ![Pairplot](https://raw.githubusercontent.com/TamaWira/Dicoding_ML-Terapan/main/submission_pertama/assets/EDA/pairplot_numerik.png?token=GHSAT0AAAAAAB3GYHOKBJJUM64V2YFR3Y3OY4MN2OA)
+
 Gambar 9. *Pairplot* Variabel Kontinuu
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Gambar 9 merupakan hasil *pairplot* antar masing-masing variabel numerik bertipe kontinuu. *Pairplot* tersebut dihasilkan menggunakan bantuan fungsi `pairplot` yang terdapat pada *library* `seaborn`. *Pairplot* tersebut menunjukkan hasil *scatterplot* antar variabel yang dapat digunakan sebagai indikasi adanya korelasi antar variabel. Kita dapat mengetahui korelasi antar variabel independen dengan label (`price_range`) pada baris terbawah atau kolom terkanan. Dapat dilihat bahwa data pada masing-masing variabel tersebar secara merata pada masing-masing label kecuali variabel `ram`. Variabel `ram` memiliki korelasi positif terhadap label dimana semakin besar nilai ram dari sebuah *handphone*, maka harganya cenderung semakin tinggi. hal ini mengindikasikan korelasi positif yang cukup kuat antara variabel `ram` dengan label.
 
 **4. Heatmap Korelasi**
+
 ![Heatmap](https://raw.githubusercontent.com/TamaWira/Dicoding_ML-Terapan/main/submission_pertama/assets/EDA/heatmap_corr.png?token=GHSAT0AAAAAAB3GYHOKFSJVN4XIWEBTCHN4Y4MN2WA)
+
 Gambar 10. *Heatmap* Korelasi antar Variabel
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Gambar 10 merupakan hasil dari *plot* korelasi antar masing-masing variabel numerik bertipe kontinuu. *Plot* tersebut dihasilkan menggunakan fungsi `heatmap` dari *library* `seaborn` untuk menghasilkan *heatmap* (peta suhu), dan fungsi `corr` yang terdapat pada *library* `Pandas` untuk mendapatkan korelasi masing-masing variabel. Dapat dilihat bahwa semakin terang warna dari kotak pada *heatmap*, maka semakin tinggi (positif) pula korelasinya. Pada *heatmap* tersebut, korelasi variabel independen yang paling tinggi dengan label adalah variabel `ram` yaitu mencapai nilai 0.9, yang artinya variabel `ram` memiliki korelasi positif yang kuat terhadap label. Hal ini selaras dengan temuan pada *pairplot* sebelumnya. Selain itu, terdapat beberapa variabel yang memiliki korelasi positif dengan label, diantaranya `battery_power` dengan nilai 0.2, `px_height` dengan nilai 0.1, serta `px_width` dengan nilai 0.2.
 
 **Kesimpulan**: Berdasarkan hasil yang didapat pada proses EDA, didapatkan kesimpulan bahwa variabel yang memiliki kontribusi atau nilai prediktif terhadap label adalah variabel `ram`, `battery_power`, `px_height`, dan `px_width`. Variabel ini yang akan digunakan pada proses berikutnya hingga *modeling*.
@@ -130,6 +146,7 @@ Tabel 2. Hasil *Feature Selection*
 | 1406 |          1731 |       142 |     1039 | 1220 |
 | 1389 |          1801 |       100 |     1708 |  258 |
 | 1534 |           622 |       760 |     1964 | 3183 |
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tabel 2 merupakan hasil dari *feature selection*. Proses *feature selection* bertujuan untuk mengambil variabel yang akan digunakan saja, diantaranya `ram`, `battery_power`, `px_height`, `px_width`, dan `price_range` (label).
 ##### Train-Test-Split.
 Proses ini dilakukan untuk membagi dataset menjadi data latih (*train*) dan data uji (*test*). Proses *train test split* dilakukan dengan menggunakan bantuan dari fungsi `train_test_split` yang terdapat pada *library* `scikit-learn`. Pembagian data latih dan data uji adalah sebesar 8:2 (80% untuk data latih dan 20% untuk data uji). Proses ini menghasil dua (2) *subset* data dengan data latih sebesar 1600 data dan data uji sebesar 400 data.
@@ -144,6 +161,7 @@ Tabel 3. Hasil *Standardization*
 | 1406 |      1.139309 | -1.137355 | -0.501540 | -0.816015 |
 | 1389 |      1.298522 | -1.231766 |  1.045546 | -1.698315 |
 | 1534 |     -1.383075 |  0.251831 |  1.637556 |  0.984354 |
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tabel 3 merupakan hasil dari proses *Standardization*. Proses tersebut mengubah data sehingga nilai *mean* dari data adalah 0 dan standar deviasi dari data adalah 1.
 
 ## Modeling
@@ -238,6 +256,7 @@ Tabel 4. Hasil Evaluasi Performa Model Machine Learning
 | Recall    | **0.95**                    | **0.95** | 0.92            |
 | F1-Score  | **0.95**                    | **0.95** | 0.91            |
 | Accuracy  | **0.95**                    | 0.94     | 0.92            |
+
 Tabel 4 merupakan hasil evaluasi performa dari masing-masing model *machine learning* merupakan data uji (*test*). Berdasarkan hasil tersebut, didapatkan bahwa model ***Logistic Regression*** memiliki performa terbaik sebagai *baseline model* untuk kasus klasifikasi *mobile price*.
 
 ## Conclusion
